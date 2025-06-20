@@ -1,0 +1,60 @@
+mkdir -p ~/projects : -
+
+Copy your Windows project to Linux:
+cp -rv /mnt/h/POC_env_linx ~/projects/
+
+ls -l ~/projects/POC_env_linx
+
+ls -la ~/projects/POC_env_linx (hidden files)
+
+
+du -sh ~/projects/POC_env_linx  # Show total size
+
+cp -r ~/projects/POC_env_linx /mnt/h/POC_env_linx_backup
+
+
+1. mAP50 (mAP@0.50)
+
+    Definition:
+
+        mAP50 calculates the mean Average Precision at an IoU (Intersection over Union) threshold of 0.50.
+
+        This means a predicted bounding box is considered a correct detection if it overlaps with the ground truth box by at least 50%.
+
+    When to Use:
+
+        A less strict metric, useful for general object detection where precise localization isn’t critical.
+
+        Often higher than mAP50-95 because it tolerates imperfect bounding boxes.
+
+    Example:
+
+        If your model has mAP50 = 0.85, it means 85% of detections are correct at IoU ≥ 50%.
+
+2. mAP50-95 (mAP@0.50:0.95)
+
+    Definition:
+
+        mAP50-95 averages the mAP across multiple IoU thresholds (from 0.50 to 0.95, in 0.05 increments).
+
+        Evaluates performance at 10 different IoU levels (0.50, 0.55, ..., 0.95).
+
+    When to Use:
+
+        A stricter metric, important for applications needing precise localization (e.g., medical imaging, robotics).
+
+        Typically lower than mAP50 because it penalizes slightly misaligned boxes.
+
+    Example:
+
+        If your model has mAP50-95 = 0.60, it means it performs well across varying levels of detection precision.
+
+Key Differences
+Metric	IoU Threshold	Strictness	Use Case
+mAP50	0.50 (single threshold)	Lenient	General-purpose detection
+mAP50-95	0.50 to 0.95 (10 thresholds)	Strict	High-precision applications
+Why Are Both Used?
+
+    mAP50 gives a quick performance estimate (easier to optimize).
+
+    mAP50-95 ensures robustness across different localization accuracies.

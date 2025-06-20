@@ -1,0 +1,15 @@
+king is man
+queen is woman
+prince is young king
+princess is young queen
+man wears crown when he becomes king
+woman wears crown when she becomes queen
+cat sits on the """"...mat
+dog barks at the cat
+cat sleeps on the sofa
+dog chases the cat
+apple is fruit
+banana is fruit
+fruit is sweet and healthy
+
+
